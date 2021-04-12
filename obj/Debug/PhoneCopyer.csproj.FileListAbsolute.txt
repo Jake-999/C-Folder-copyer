@@ -1,0 +1,10 @@
+C:\Users\Jake\source\repos\PhoneCopyer\bin\Debug\PhoneCopyer.exe.config
+C:\Users\Jake\source\repos\PhoneCopyer\bin\Debug\PhoneCopyer.exe
+C:\Users\Jake\source\repos\PhoneCopyer\bin\Debug\PhoneCopyer.pdb
+C:\Users\Jake\source\repos\PhoneCopyer\obj\Debug\PhoneCopyer.csprojAssemblyReference.cache
+C:\Users\Jake\source\repos\PhoneCopyer\obj\Debug\PhoneCopyer.Form1.resources
+C:\Users\Jake\source\repos\PhoneCopyer\obj\Debug\PhoneCopyer.Properties.Resources.resources
+C:\Users\Jake\source\repos\PhoneCopyer\obj\Debug\PhoneCopyer.csproj.GenerateResource.cache
+C:\Users\Jake\source\repos\PhoneCopyer\obj\Debug\PhoneCopyer.csproj.CoreCompileInputs.cache
+C:\Users\Jake\source\repos\PhoneCopyer\obj\Debug\PhoneCopyer.exe
+C:\Users\Jake\source\repos\PhoneCopyer\obj\Debug\PhoneCopyer.pdb
