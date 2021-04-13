@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,7 +31,7 @@ namespace PhoneCopyer
         }
         private void Movebtn_Click(object sender, EventArgs e)
         {
-
+            Folder_move(folder1_loc, folder2_loc);
         }
 
         private void Copybtn_Click(object sender, EventArgs e)
@@ -40,24 +40,6 @@ namespace PhoneCopyer
             DirectoryInfo diTarget = new DirectoryInfo(folder2_loc);
             Folder_copy(diSource, diTarget);
         }
-        private void deletebtn_Click(object sender, EventArgs e)
-        {
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result;
-
-            string message = "Are you sure you want to delete this directory";
-            string caption = "";
-            // Displays the MessageBox.
-            DirectoryInfo diSource = new DirectoryInfo(folder1_loc);
-
-            result = MessageBox.Show(message, caption, buttons);
-            if (result == System.Windows.Forms.DialogResult.Yes)
-            {
-                Folder_delete(diSource);
-            }
-        }
-
-        // 
         private static void folder1_Location()
         {
             using (FolderBrowserDialog dialog = new FolderBrowserDialog())
@@ -80,8 +62,26 @@ namespace PhoneCopyer
 
         }
 
+        private void deletebtn_Click(object sender, EventArgs e)
+        {
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
 
-        private void Folder_copy(DirectoryInfo diSource, DirectoryInfo diTarget)
+            string message = "Are you sure you want to delete this directory";
+            string caption = "";
+            // Displays the MessageBox.
+            DirectoryInfo diSource = new DirectoryInfo(folder1_loc);
+
+            result = MessageBox.Show(message, caption, buttons);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                Folder_delete(diSource);
+            }
+        }
+
+
+
+        private bool Folder_copy(DirectoryInfo diSource, DirectoryInfo diTarget)
         {
 
             Directory.CreateDirectory(diTarget.FullName);
@@ -98,6 +98,7 @@ namespace PhoneCopyer
                     diTarget.CreateSubdirectory(diSourceSubDir.Name);
                 Folder_copy(diSourceSubDir, nextTargetSubDir);
             }
+            return true;
         }
         private void Folder_delete(DirectoryInfo source)
         {
@@ -114,7 +115,21 @@ namespace PhoneCopyer
                 copyiedfiles.AppendText($"Deleting {source.FullName}\n");
             }
         }
+        private void Folder_move(string source, string target)
+        {
+            if (Directory.Exists(source) == true)
+            {
+                DirectoryInfo sourcedi = new DirectoryInfo(source);
+                DirectoryInfo targetdi = new DirectoryInfo(target);
+                if (Folder_copy(sourcedi, targetdi) == true)
+                {
 
+                    Folder_delete(sourcedi);
+                }
+
+
+            }
+        }
     }
 
 }
